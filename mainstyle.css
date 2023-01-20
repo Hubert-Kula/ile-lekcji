@@ -1,0 +1,41 @@
+.card {
+  display: inline-block;
+  width: 300px; /* Szerokość karty */
+  margin: 10px; /* Margines między kartami */
+  padding: 20px;
+  border-radius: 15px;
+  position: relative;
+} 
+
+  
+.card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  border: 10px solid rgb(7, 218, 147);
+  border-radius: 15px;
+  box-sizing: border-box; /* Uwzględnia rozmiar ramki */
+}
+  
+  
+.blue {
+  background-color: blue;
+  color: white;
+}
+  
+.green {
+  background-color: green;
+  color: white;
+}
+  
+.red {
+  background-color: red;
+  color: white;
+}
+
+.card-container {
+  overflow: hidden;
+}
