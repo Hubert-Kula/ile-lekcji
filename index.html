@@ -34,9 +34,14 @@
             // Read data from the data node
             dataRef.on('value', function(snapshot) {
                 // Get the data from the snapshot
-                document.getElementById("myDiv").textContent = snapshot.val();
-
-                
+                const data = snapshot.val()
+                let parent = document.getElementById("container");
+                let newElem = document.createElement("p")
+                parent.appendChild(newElem);
+                newElem.innerHTML = snapshot.val();
+                newElem.className = "card blue";
+                newElem.style.color = "white";
+                newElem.innerHTML = snapshot.val()
             });
         </script>
         <div id="myDiv"></div>
