@@ -34,8 +34,11 @@
             // Read data from the data node
             dataRef.on('value', function(snapshot) {
                 // Get the data from the snapshot
+                document.getElementById("myDiv").textContent = snapshot.val();
 
+                
             });
         </script>
+        <div id="myDiv"></div>
     </body>
 </html>
