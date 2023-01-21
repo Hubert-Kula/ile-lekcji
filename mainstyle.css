@@ -1,6 +1,6 @@
 .card {
   display: inline-block;
-  width: 300px; /* Szerokość karty */
+  width: 500px; /* Szerokość karty */
   margin: 10px; /* Margines między kartami */
   padding: 20px;
   border-radius: 15px;

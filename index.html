@@ -29,10 +29,73 @@
             const database = firebase.database();
 
             // Get a reference to the data node
-            const dataRef = database.ref('x');
+            const dataRef1 = database.ref('1');
+            const dataRef2 = database.ref('2');
+            const dataRef3 = database.ref('3');
+            const dataRef4 = database.ref('4');
+            const dataRef5 = database.ref('5');
 
             // Read data from the data node
-            dataRef.on('value', function(snapshot) {
+            dataRef1.on('value', function(snapshot) {
+                // Get the data from the snapshot
+                const data = snapshot.val()
+                let parent = document.getElementById("container");
+                let newElem = document.createElement("p")
+                parent.appendChild(newElem);
+                newElem.innerHTML = snapshot.val();
+                newElem.className = "card blue";
+                newElem.style.color = "white";
+                newElem.innerHTML = snapshot.val()
+            });
+
+              // Read data from the data node
+              dataRef2.on('value', function(snapshot) {
+                // Get the data from the snapshot
+                const data = snapshot.val()
+                let parent = document.getElementById("container");
+                let newElem = document.createElement("p")
+                let newH = document.createElement("h2")
+                let br = document.createElement("br")
+                parent.appendChild(newElem);
+                hj.appendChild(newH)
+                newElem.innerHTML = snapshot.val();
+                newElem.className = "card blue";
+                newElem.style.color = "white";
+                newElem.innerHTML = snapshot.val()
+                newElem.appendChild(newH)
+                newH.innerHTML = "Matematyka:";
+                
+                
+            });
+
+              // Read data from the data node
+              dataRef3.on('value', function(snapshot) {
+                // Get the data from the snapshot
+                const data = snapshot.val()
+                let parent = document.getElementById("container");
+                let newElem = document.createElement("p")
+                parent.appendChild(newElem);
+                newElem.innerHTML = snapshot.val();
+                newElem.className = "card blue";
+                newElem.style.color = "white";
+                newElem.innerHTML = snapshot.val()
+            });
+
+              // Read data from the data node
+              dataRef4.on('value', function(snapshot) {
+                // Get the data from the snapshot
+                const data = snapshot.val()
+                let parent = document.getElementById("container");
+                let newElem = document.createElement("p")
+                parent.appendChild(newElem);
+                newElem.innerHTML = snapshot.val();
+                newElem.className = "card blue";
+                newElem.style.color = "white";
+                newElem.innerHTML = snapshot.val()
+            });
+
+              // Read data from the data node
+              dataRef5.on('value', function(snapshot) {
                 // Get the data from the snapshot
                 const data = snapshot.val()
                 let parent = document.getElementById("container");
