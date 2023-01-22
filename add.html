@@ -1,14 +1,52 @@
-let parent = document.getElementById("container");
-let zaw = document.createElement("p")
-parent.appendChild(newDiv);
-newDiv.appendChild(zaw)
-newDiv.innerHTML = "Hello World";
-newDiv.className = "card blue";
-newDiv.style.color = "blue";
-zaw.innerHTML = snapshot.val()
+<html>
+    <head>
+        <title>Dodawanie</title>
+    </head>
+    <body>
+        <select id="mySelect">
+            <option value="option1">Opcja 1</option>
+            <option value="option2">Opcja 2</option>
+            <option value="option3">Opcja 3</option>
+            <option value="option4">Opcja 4</option>
+          </select>
+          <br>
+          <input type="text" id="gf">
+          <button onclick="ile()">dd</button>
+          
 
-<div class="container" id="container">
-    <div class="card blue">Notatka 1</div>
-    <div class="card green">Notatka 2</div>
-    <div class="card red">Notatka 3</div>
-</div>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+    <script>
+        const firebaseConfig = {
+    apiKey: "AIzaSyDkOj4i72ophZEnE-eUm3msqBqrGVSGNis",
+    authDomain: "ile-lekcji.firebaseapp.com",
+    databaseURL: "https://ile-lekcji-default-rtdb.firebaseio.com",
+    projectId: "ile-lekcji",
+    storageBucket: "ile-lekcji.appspot.com",
+    messagingSenderId: "801086162931",
+    appId: "1:801086162931:web:dfce03462d98a12eb7f486",
+    measurementId: "G-T1ZEMDN90X"
+  };
+  firebase.initializeApp(firebaseConfig);
+function ile() {
+
+    var select = document.getElementById("mySelect");
+console.log(select.value); // Zwróci wartość opcji
+
+var gf = document.getElementById("gf")
+
+
+
+
+  var database = firebase.database();
+
+        database.ref("notes/" + select.value).set({
+            title: select.value,
+            content: gf.value,
+            type: pink
+
+  });
+}
+    </script>
+    </body>
+</html>
