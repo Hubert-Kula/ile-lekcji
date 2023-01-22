@@ -4,10 +4,10 @@
     </head>
     <body>
         <select id="mySelect">
-            <option value="option1">Opcja 1</option>
-            <option value="option2">Opcja 2</option>
-            <option value="option3">Opcja 3</option>
-            <option value="option4">Opcja 4</option>
+            <option value="Matematyka">Matematyka</option>
+            <option value="J.polski">J.polski</option>
+            <option value="Historia">Historia</option>
+            <option value="Chemia">Chemia</option>
           </select>
           <br>
           <input type="text" id="gf">
@@ -43,7 +43,7 @@ var gf = document.getElementById("gf")
         database.ref("notes/" + select.value).set({
             title: select.value,
             content: gf.value,
-            type: pink
+            type: "pink",
 
   });
 }
