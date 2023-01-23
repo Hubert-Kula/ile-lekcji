@@ -1,70 +1,22 @@
 <html>
     <head>
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
         <title>Firebase App</title>
         <link rel="stylesheet" type="text/css" href="mainstyle.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     </head>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
     <body>
         <div class="container" id="container">
         </div>
-        <script>
-            // Initialize Firebase
-            const firebaseConfig = {
-     apiKey: "AIzaSyDkOj4i72ophZEnE-eUm3msqBqrGVSGNis",
-    authDomain: "ile-lekcji.firebaseapp.com",
-    databaseURL: "https://ile-lekcji-default-rtdb.firebaseio.com",
-    projectId: "ile-lekcji",
-    storageBucket: "ile-lekcji.appspot.com",
-    messagingSenderId: "801086162931",
-    appId: "1:801086162931:web:dfce03462d98a12eb7f486",
-    measurementId: "G-T1ZEMDN90X"
-            }
-            firebase.initializeApp(firebaseConfig);
-            const database = firebase.database();
-            const notesRef = database.ref("notes");
+        <script src="view.js"></script>
 
-            // Read data from the notes node
-            notesRef.on('value', function(snapshot) {
-                // Get the data from the snapshot
-                const data = snapshot.val();
-                let parent = document.getElementById("container");
-                for (const key in data) {
-                    // Create a new card element
-                    let card = document.createElement("div");
-                    card.className = "card";
+<div id="bottom-bar">
+    <p id="text">Hubert Kula</p>
+    <span class="material-symbols-outlined" onclick="window.open('https://google.com')">bug_report</span>
 
-                    // Create a new header element
-                    let header = document.createElement("h2");
-                    header.innerHTML = data[key].title;
+</div>
 
-                    // Create a new content element
-                    let content = document.createElement("p");
-                    content.innerHTML = data[key].content;
-
-                    // Append the header and content to the card
-                    card.appendChild(header);
-                    card.appendChild(content);
-
-                    // Set the color of the card based on the note type
-                    if (data[key].type === "green") {
-                        card.style.backgroundColor = "green";
-                    } else if (data[key].type === "blue") {
-                        card.style.backgroundColor = "blue";
-                    } else if (data[key].type === "red") {
-                        card.style.backgroundColor = "red";
-                    }
-                    else if (data[key].type === "yel") {
-                        card.style.backgroundColor = "yelow";
-                    }
-                    else if (data[key].type === "pink") {
-                        card.style.backgroundColor = "pink";
-                    }
-
-                    // Append the card to the container
-                    parent.appendChild(card);
-                }
-            });
-        </script>
     </body>
 </html>
