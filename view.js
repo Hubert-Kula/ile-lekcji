@@ -36,16 +36,16 @@ notesRef.on('value', function(snapshot) {
     card.appendChild(content);
 
     // Set the color of the card based on the note type
-    if (data[key].type === "green") {
-      card.style.backgroundColor = "green";
-    } else if (data[key].type === "blue") {
-      card.style.backgroundColor = "blue";
-    } else if (data[key].type === "red") {
+    if (data[key].type === "Matematyka") {
+      card.style.backgroundColor = "#43b538";
+    } else if (data[key].type === "J.polski") {
+      card.style.backgroundColor = "#34cceb";
+    } else if (data[key].type === "Historia") {
       card.style.backgroundColor = "red";
-    } else if (data[key].type === "yel") {
-      card.style.backgroundColor = "yelow";
-    } else if (data[key].type === "pink") {
-      card.style.backgroundColor = "pink";
+    } else if (data[key].type === "Chemia") {
+      card.style.backgroundColor = "#d1c413";
+    } else if (data[key].type === "WOS") {
+      card.style.backgroundColor = "#d91698";
     }
 
     // Append the card to the container

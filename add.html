@@ -8,6 +8,7 @@
             <option value="J.polski">J.polski</option>
             <option value="Historia">Historia</option>
             <option value="Chemia">Chemia</option>
+            <option value="WOS">WOS</option>
           </select>
           <br>
           <input type="text" id="gf">
@@ -29,21 +30,30 @@
   };
   firebase.initializeApp(firebaseConfig);
 function ile() {
+    if (document.getElementById("mySelect") === "Matematyka") {
+      var col = "green";
+    } else if (document.getElementById("mySelect") === "J.polski") {
+        var col = "blue";
+    } else if (document.getElementById("mySelect") === "Historia") {
+        var col = "red";
+    } else if (document.getElementById("mySelect") === "Chemia") {
+        var col = "yelow";
+    } else if (document.getElementById("mySelect") === "WOS") {
+        var col = "pink";
+    }
+    const rt = col
 
     var select = document.getElementById("mySelect");
 console.log(select.value); // Zwróci wartość opcji
 
 var gf = document.getElementById("gf")
 
-
-
-
   var database = firebase.database();
 
         database.ref("notes/" + select.value).set({
             title: select.value,
             content: gf.value,
-            type: "pink",
+            type: select.value
 
   });
 }
