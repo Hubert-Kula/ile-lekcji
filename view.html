@@ -1,22 +1,119 @@
 <html>
     <head>
-        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
-        <title>Firebase App</title>
+        <title></title>
         <link rel="stylesheet" type="text/css" href="mainstyle.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <script>
+          window.location.replace("view.html");
+        </script>
     </head>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
     <body>
         <div class="container" id="container">
+            <div class="card blue">Notatka 1</div>
+            <div class="card green">Notatka 2</div>
+            <div class="card red">Notatka 3</div>
         </div>
-        <script src="view.js"></script>
+        <script>
+            // Initialize Firebase
+            const firebaseConfig = {
+     apiKey: "AIzaSyDkOj4i72ophZEnE-eUm3msqBqrGVSGNis",
+    authDomain: "ile-lekcji.firebaseapp.com",
+    databaseURL: "https://ile-lekcji-default-rtdb.firebaseio.com",
+    projectId: "ile-lekcji",
+    storageBucket: "ile-lekcji.appspot.com",
+    messagingSenderId: "801086162931",
+    appId: "1:801086162931:web:dfce03462d98a12eb7f486",
+    measurementId: "G-T1ZEMDN90X"
+            }
+            firebase.initializeApp(firebaseConfig);
 
-<div id="bottom-bar">
-    <p id="text">Hubert Kula</p>
-    <span class="material-symbols-outlined" onclick="window.open('https://google.com')">bug_report</span>
+            // Get a reference to the database
+            const database = firebase.database();
 
-</div>
+            // Get a reference to the data node
+            const dataRef1 = database.ref('1');
+            const dataRef2 = database.ref('2');
+            const dataRef3 = database.ref('3');
+            const dataRef4 = database.ref('4');
+            const dataRef5 = database.ref('5');
 
+            // Read data from the data node
+            dataRef1.on('value', function(snapshot) {
+                // Get the data from the snapshot
+                const data = snapshot.val()
+                let parent = document.getElementById("container");
+                let newElem = document.createElement("p")
+                parent.appendChild(newElem);
+                newElem.innerHTML = snapshot.val();
+                newElem.className = "card blue";
+                newElem.style.color = "white";
+                newElem.innerHTML = snapshot.val()
+            });
+
+              // Read data from the data node
+              dataRef2.on('value', function(snapshot) {
+                // Get the data from the snapshot
+                const data = snapshot.val()
+                let parent = document.getElementById("container");
+                let newElem = document.createElement("p")
+                let newH = document.createElement("h2")
+                let br = document.createElement("br")
+                parent.appendChild(newElem);
+                hj.appendChild(newH)
+                newElem.innerHTML = snapshot.val();
+                newElem.className = "card blue";
+                newElem.style.color = "white";
+                newElem.innerHTML = snapshot.val()
+                newElem.appendChild(newH)
+                newH.innerHTML = "Matematyka:";
+                
+                
+            });
+
+              // Read data from the data node
+              dataRef3.on('value', function(snapshot) {
+                // Get the data from the snapshot
+                const data = snapshot.val()
+                let parent = document.getElementById("container");
+                let newElem = document.createElement("p")
+                parent.appendChild(newElem);
+                newElem.innerHTML = snapshot.val();
+                newElem.className = "card blue";
+                newElem.style.color = "white";
+                newElem.innerHTML = snapshot.val()
+            });
+
+              // Read data from the data node
+              dataRef4.on('value', function(snapshot) {
+                // Get the data from the snapshot
+                const data = snapshot.val()
+                let parent = document.getElementById("container");
+                let newElem = document.createElement("p")
+                parent.appendChild(newElem);
+                newElem.innerHTML = snapshot.val();
+                newElem.className = "card blue";
+                newElem.style.color = "white";
+                newElem.innerHTML = snapshot.val()
+            });
+
+              // Read data from the data node
+              dataRef5.on('value', function(snapshot) {
+                // Get the data from the snapshot
+                const data = snapshot.val()
+                let parent = document.getElementById("container");
+                let newElem = document.createElement("p")
+                parent.appendChild(newElem);
+                newElem.innerHTML = snapshot.val();
+                newElem.className = "card blue";
+                newElem.style.color = "white";
+                newElem.innerHTML = snapshot.val()
+            });
+        </script>
+        <div id="myDiv"></div>
+        <script>
+          window.location.replace("view.html");
+        </script>
+        
     </body>
 </html>
