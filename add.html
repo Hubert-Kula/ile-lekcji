@@ -5,6 +5,11 @@
         <link rel="stylesheet" type="text/css" href="mainstyle.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+        <style>
+            body{
+                background-color:rgba(223, 243, 255, 0.623) ;
+            }
+        </style>
     </head>
     <body>
         <select id="mySelect">
@@ -15,8 +20,11 @@
             <option value="WOS">WOS</option>
           </select>
           <br>
+          <br>
+          <div class="lk">
           <input type="text" id="gf">
-          <button onclick="ile()">dd</button>
+          <button onclick="ile()" id="zat">Zatwierdź</button>
+          </div>
           
 
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
@@ -33,7 +41,12 @@
     measurementId: "G-T1ZEMDN90X"
   };
   firebase.initializeApp(firebaseConfig);
-function ile() {
+
+function c(){
+    window.location.href = "index.html";
+}
+    function ile() {
+    
     if (document.getElementById("mySelect") === "Matematyka") {
       var col = "green";
     } else if (document.getElementById("mySelect") === "J.polski") {
@@ -51,16 +64,23 @@ function ile() {
 console.log(select.value); // Zwróci wartość opcji
 
 var gf = document.getElementById("gf")
-
   var database = firebase.database();
 
         database.ref("notes/" + select.value).set({
             title: select.value,
             content: gf.value,
             type: select.value
-
+            
   });
-}
+  
+    }
     </script>
+    <div id="bottom-bar">
+        <p id="text">Hubert Kula</p>
+        <span class="material-symbols-outlined" id="h" onclick="window.open('index.html')">
+            home
+            </span>
+        <span class="material-symbols-outlined" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSce2fPXZNdcFH2RVE-4q4GjK90QSYP7wI9HSEtUsICqii_tDw/viewform?usp=sf_link')">bug_report</span>
+    </div>
     </body>
 </html>
