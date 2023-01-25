@@ -1,0 +1,8 @@
+- name: Set up Node.js environment
+  uses: actions/setup-node@v2
+  with:
+    node-version: 14
+- name: Set Secret
+  run: echo ::set-env name=SECRET_J::${{secrets.SECRET_J}}
+- name: Run script
+  run: node script.js
