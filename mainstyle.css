@@ -172,7 +172,8 @@ select {
   text-align: center;
   color: #000000;
   height: 50px;
-  width: 200px;
+  width: 550px;
+  margin-left: 25px;
   border-radius: 50px;
   background-color: #4CAF50;
   font-size: 25px;
