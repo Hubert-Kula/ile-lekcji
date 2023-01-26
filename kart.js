@@ -30,10 +30,14 @@ const firebaseConfig = {
       // Create a new content element
       let content = document.createElement("p");
       content.innerHTML = data[key].content;
+
+      let date = document.createElement("h3");
+      date.innerHTML = data[key].date;
   
       // Append the header and content to the card
       card.appendChild(header);
       card.appendChild(content);
+      card.appendChild(date)
   
       // Set the color of the card based on the note type
       if (data[key].type === "Matematyka") {

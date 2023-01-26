@@ -23,6 +23,7 @@
           <input type="text" id="gf">
           <br>
           <br>
+          <input type="date" id="dt">
           <button onclick="ile()" id="zat">Zatwierdź</button>
           
 
@@ -59,17 +60,19 @@ function c(){
     }
     const rt = col
 
+
     var select = document.getElementById("mySelect");
 console.log(select.value); // Zwróci wartość opcji
 
 var gf = document.getElementById("gf")
   var database = firebase.database();
+  var date = document.getElementById("dt")
 
         database.ref("kart/" + select.value).set({
             title: select.value,
             content: gf.value,
-            type: select.value
-            
+            type: select.value,
+            date: date.value,
   });
   
     }
