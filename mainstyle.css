@@ -153,8 +153,6 @@ input {
   width: 600px;
   height: 75px;
   padding: 10px;
-  position: relative;
-  text-align:start;
   font-size: 75px;
   border-radius:15px ;
 }
@@ -180,4 +178,50 @@ select {
   cursor: pointer;
 }
 
+bad {
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+}
+
+bad.green {
+  background-color: #239627;
+}
+
+bad.blue {
+  background-color: rgb(11, 172, 212);
+}
+
+bad.red {
+  background-color: #cc1818;
+}
+
+bad.yl {
+  background-color: rgb(216, 219, 16);
+}
+
+bad.orange {
+  background-color: orange;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #968123;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  overflow: hidden;
+}
+
+#add {
+  color: #3cafc4;
+  font-size: 50px;
+  position: absolute;
+  right: 0px;
+  width: -100%;
+  padding: 10px;
+}
 

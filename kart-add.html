@@ -65,7 +65,7 @@ console.log(select.value); // Zwróci wartość opcji
 var gf = document.getElementById("gf")
   var database = firebase.database();
 
-        database.ref("notes/" + select.value).set({
+        database.ref("kart/" + select.value).set({
             title: select.value,
             content: gf.value,
             type: select.value
