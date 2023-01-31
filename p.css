@@ -1,0 +1,14 @@
+.blue {
+    background-color: rgb(0, 119, 255);
+    margin: 0;
+}
+
+.green {
+    background-color: rgb(61, 202, 18);
+    margin: 0;
+}
+
+.red {
+    background-color: red;
+    margin: 0;
+}

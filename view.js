@@ -46,7 +46,10 @@ notesRef.on('value', function(snapshot) {
       card.style.backgroundColor = "#d1c413";
     } else if (data[key].type === "WOS") {
       card.style.backgroundColor = "#d91698";
+    } else {
+      card.style.backgroundColor = data[key].type
     }
+    
 
     // Append the card to the container
     parent.appendChild(card);

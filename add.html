@@ -11,6 +11,7 @@
         <span class="material-symbols-outlined" id="add" title="Edytuj" onclick="location.href='index.html'">
             home
             </span>
+            <p>Przedmiot:</p>
         <select id="mySelect">
             <option value="Matematyka">Matematyka</option>
             <option value="J.polski">J.polski</option>
@@ -18,12 +19,22 @@
             <option value="Chemia">Chemia</option>
             <option value="WOS">WOS</option>
           </select>
-          <br>
-          <br>
+          <p>Treść:</p>
           <input type="text" id="gf">
           <br>
           <br>
           <button onclick="ile()" id="zat">Zatwierdź</button>
+          <br>
+          <hr style="border-top: 10px solid rgb(80, 80, 80); border-radius: 3px;">
+          <p>Przedmiot:</p>
+          <input type="text" id="prz">
+          <p>Treść:</p>
+          <input type="text" id="gff">
+          <p>Kolor:</p>
+          <input type="color" id="v">
+          <br>
+          <br>
+          <button onclick="ilee()" id="zat">Zatwierdź</button>
           
 
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
@@ -73,6 +84,24 @@ var gf = document.getElementById("gf")
   });
   
     }
+
+function ilee() {
+    
+    var select = document.getElementById("prz");
+console.log(select.value); // Zwróci wartość opcji
+
+    var gf = document.getElementById("gff")
+  var database = firebase.database();
+  var colr = document.getElementById("v")
+
+        database.ref("notes/" + select.value).set({
+            title: select.value,
+            content: gf.value,
+            type: colr.value
+            
+  });
+  
+}
     </script>
     <div id="bottom-bar">
         <p id="text">Hubert Kula</p>
