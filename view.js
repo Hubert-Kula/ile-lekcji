@@ -46,6 +46,8 @@ notesRef.on('value', function(snapshot) {
       card.style.backgroundColor = "#d1c413";
     } else if (data[key].type === "WOS") {
       card.style.backgroundColor = "#d91698";
+    } else if (data[key].type) === "#000" {
+      card.style.backgroundColor = "orange";
     } else {
       card.style.backgroundColor = data[key].type
     }
