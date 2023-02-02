@@ -1,80 +1,27 @@
-<style>
-  body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+<html>
+    <head>
+        <script src="//code.tidio.co/herzgvnctjxctzg7jepczsyhkwfah3ix.js" async></script>
+      <meta charset=“UTF-8”>
+      <meta lang="polish">
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+        <title>Ile-lekcji</title>
+        <link rel="stylesheet" type="text/css" href="mainstyle.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+    <body>
+        <span class="material-symbols-outlined" id="add" title="Edytuj" onclick="location.href='add.html'">
+            add_circle
+            </span>
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-}
+        <div class="container" id="container">
+        </div>
+        <script src="view.js"></script>
 
-nav ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 1rem;
-}
-
-section {
-  padding: 2rem;
-  text-align: center;
-}
-
-h1, h2 {
-  margin-top: 0;
-}
-
-a {
-  color: blue;
-}
-
-</style>
-<header style="background-color: lightblue;">
-  <nav>
-    <ul>
-      <li><a href="#about">O nas</a></li>
-      <li><a href="#features">Funkcje</a></li>
-      <li><a href="#pricing">Cennik</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-    </ul>
-  </nav>
-</header>
-
-<section id="about" style="background-color: #f2f2f2;">
-  <h1>Ile lekcji</h1>
-  <p>Witaj na Ile lekcji - twoim nowym narzędziu do zarządzania lekcjami!</p>
-  <p>Zarejestruj się, aby utworzyć klasę i zacząć wrzucać i odczytywać prace domowe z innymi uczniami.</p>
-  <a href="#features">Dowiedz się więcej o naszych funkcjach</a>
-</section>
-
-<section id="features" style="background-color: #e5e5e5;">
-  <h2>Nasze funkcje</h2>
-  <ul>
-    <li>Tworzenie i dołączanie do klas</li>
-    <li>Wrzucanie i odczytywanie prac domowych</li>
-    <li>Publikowanie prac domowych</li>
-  </ul>
-  <p>Te i wiele innych funkcji czekają na Ciebie w Ile lekcji. <a href="#pricing">Sprawdź nasze ceny</a> i zacznij korzystać z naszego narzędzia już dziś!</p>
-</section>
-
-<section id="pricing" style="background-color: #f2f2f2;">
-  <h2>Nasze ceny</h2>
-  <p>Nasze usługi są dostępne w kilku opcjach cenowych, aby odpowiedzieć na potrzeby różnych grup odbiorców.</p>
-  <p>Skontaktuj się z nami, aby uzyskać więcej informacji na temat naszych opcji cenowych.</p>
-</section>
-
-<section id="contact" style="background-color: #e5e5e5;">
-  <h2>Skontaktuj się z nami</h2>
-  <p>Jeśli masz jakieś pytania lub sugestie, nie wahaj si
-</p>
-</section>
+<div id="bottom-bar">
+    <p id="text">Hubert Kula --- v1.7.3</p>
+    <span class="material-symbols-outlined" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSce2fPXZNdcFH2RVE-4q4GjK90QSYP7wI9HSEtUsICqii_tDw/viewform?usp=sf_link')">bug_report</span>
+</div>
+    </body>
+</html>

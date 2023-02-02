@@ -1,5 +1,6 @@
 body {
   font-family: 'Comfortaa';font-size: 22px;
+  background-color: #3693a3;
 }
 
 .card {
@@ -155,7 +156,14 @@ input {
   padding: 10px;
   font-size: 75px;
   border-radius:15px ;
+  background-color: rgb(109, 229, 245);
+  border: 0;
 }
+
+input #v {
+  color: #0a5fdd;
+}
+
 
 select {
   width: 350px;
@@ -217,7 +225,7 @@ bad.orange {
 }
 
 #add {
-  color: #3cafc4;
+  color: #a1d4dd;
   font-size: 50px;
   position: absolute;
   right: 0px;
