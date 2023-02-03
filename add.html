@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
     <head>
         <title>Dodawanie</title>
@@ -109,3 +110,116 @@ console.log(select.value); // Zwróci wartość opcji
     </div>
     </body>
 </html>
+=======
+<html>
+    <head>
+        <title>Dodawanie</title>
+        <meta charset=“UTF-8”>
+        <link rel="stylesheet" type="text/css" href="mainstyle.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+        <script src="style.js"></script>
+    </head>
+    <body>
+        <span class="material-symbols-outlined" id="add" title="Edytuj" onclick="location.href='p.html'">
+            home
+            </span>
+            <p>Przedmiot:</p>
+        <select id="mySelect">
+            <option value="Matematyka">Matematyka</option>
+            <option value="J.polski">J.polski</option>
+            <option value="Historia">Historia</option>
+            <option value="Chemia">Chemia</option>
+            <option value="WOS">WOS</option>
+          </select>
+          <p>Treść:</p>
+          <input type="text" id="gf">
+          <br>
+          <br>
+          <button onclick="ile()" id="zat">Zatwierdź</button>
+          <br>
+          <hr style="border-top: 10px solid rgb(80, 80, 80); border-radius: 3px;">
+          <p>Przedmiot:</p>
+          <input type="text" id="prz">
+          <p>Treść:</p>
+          <input type="text" id="gff">
+          <p>Kolor:</p>
+          <input type="color" id="v">
+          <br>
+          <br>
+          <button onclick="ilee()" id="zat">Zatwierdź</button>
+          
+
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+    <script>
+        const firebaseConfig = {
+    apiKey: "AIzaSyDkOj4i72ophZEnE-eUm3msqBqrGVSGNis",
+    authDomain: "ile-lekcji.firebaseapp.com",
+    databaseURL: "https://ile-lekcji-default-rtdb.firebaseio.com",
+    projectId: "ile-lekcji",
+    storageBucket: "ile-lekcji.appspot.com",
+    messagingSenderId: "801086162931",
+    appId: "1:801086162931:web:dfce03462d98a12eb7f486",
+    measurementId: "G-T1ZEMDN90X"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+function c(){
+    window.location.href = "p.html";
+}
+    function ile() {
+    
+    if (document.getElementById("mySelect") === "Matematyka") {
+      var col = "green";
+    } else if (document.getElementById("mySelect") === "J.polski") {
+        var col = "blue";
+    } else if (document.getElementById("mySelect") === "Historia") {
+        var col = "red";
+    } else if (document.getElementById("mySelect") === "Chemia") {
+        var col = "yelow";
+    } else if (document.getElementById("mySelect") === "WOS") {
+        var col = "pink";
+    }
+    const rt = col
+
+    var select = document.getElementById("mySelect");
+console.log(select.value); // Zwróci wartość opcji
+
+var gf = document.getElementById("gf")
+  var database = firebase.database();
+
+        database.ref("notes/" + select.value).set({
+            title: select.value,
+            content: gf.value,
+            type: select.value
+            
+  });
+  
+    }
+
+function ilee() {
+    
+    var select = document.getElementById("prz");
+console.log(select.value); // Zwróci wartość opcji
+
+    var gf = document.getElementById("gff")
+  var database = firebase.database();
+  var colr = document.getElementById("v")
+
+        database.ref("notes/" + select.value).set({
+            title: select.value,
+            content: gf.value,
+            type: colr.value
+            
+  });
+  
+}
+    </script>
+    <div id="bottom-bar">
+        <p id="text">Hubert Kula --- v1.7.3</p>
+        <span class="material-symbols-outlined" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSce2fPXZNdcFH2RVE-4q4GjK90QSYP7wI9HSEtUsICqii_tDw/viewform?usp=sf_link')">bug_report</span>
+    </div>
+    </body>
+</html>
+>>>>>>> 668b84442e4c7df34a8a0d8796d0491bd5fdc87e
