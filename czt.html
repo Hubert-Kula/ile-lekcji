@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prosty czat</title>
+</head>
+<body>
+    <form>
+        <input type="file" id="myFile">
+    </form>
+    <script src="./node_modules/tesseract.js/dist/tesseract.min.js"></script>
+    
+    <script>
+    var input = document.getElementById("myFile");
+    input.addEventListener("change", function() {
+      var file = this.files[0];
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var image = new Image();
+        image.src = e.target.result;
+        image.onload = function() {
+          Tesseract.recognize(image)
+            .then(function(result) {
+              var recognizedText = result.text;
+              document.getElementById("result").innerHTML = recognizedText;
+            })
+            .catch(err => console.error(err))
+            .finally(() => console.log("Recognition finished."));
+        };
+      };
+      reader.readAsDataURL(file);
+    });
+    </script>
+    <div id="result"></div>
+</body>
+</html>
