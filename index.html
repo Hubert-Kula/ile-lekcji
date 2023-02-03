@@ -1,26 +1,51 @@
 <html>
-    <head>
-      <meta charset=“UTF-8”>
-      <meta lang="polish">
-        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
-        <title>Ile-lekcji</title>
-        <link rel="stylesheet" type="text/css" href="mainstyle.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    </head>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
-    <body>
-        <span class="material-symbols-outlined" id="add" title="Edytuj" onclick="location.href='add.html'">
-            add_circle
-            </span>
+  <head>
+    <title>Ile lekcji - Strona główna</title>
+    <meta charset=“UTF-8”>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/c7906fa6fb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/c7906fa6fb.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" type="text/css" href="p.css">
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="index.html">Str. główna</a>
+      <a href="p.html">Start</a>
+    </div>
+    <br>
+    <br> 
+    <header>
+      <h1>Ile lekcji</h1>
+      <h2>Platforma do zarządzania pracami domowymi</h2>
+    </header>
 
-        <div class="container" id="container">
+    <main>
+      <div class="cards-container">
+        <div class="card" style="background-color: rgb(211, 198, 16);">
+          <i class="fas fa-user-plus"></i>
+          <h3>Załóż konto</h3>
+          <p>i dołącz do kalsy, lub Załóż własną</p>
+          <a href="#">Zacznijmy</a>
         </div>
-        <script src="view.js"></script>
-
-<div id="bottom-bar">
-    <p id="text">Hubert Kula --- v1.7.2-beta</p>
-    <span class="material-symbols-outlined" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSce2fPXZNdcFH2RVE-4q4GjK90QSYP7wI9HSEtUsICqii_tDw/viewform?usp=sf_link')">bug_report</span>
-</div>
-    </body>
+        <div class="card" style="background-color:rgb(179, 144, 224);">
+          <i class="fas fa-book"></i>
+          <h3>Czytaj</h3>
+          <p>co było zadane i sam publikuj dla innych członków klasy</p>
+          <a href="#">Rejestracja</a>
+        </div>
+        <div class="card" style="background-color:rgb(55, 113, 221);">
+          <i class="fa-solid fa-flask"></i>
+          <h3>Beta</h3>
+          <p>Dałącz do testów beta, aby mieć dostęp do najnowszych funkcji</p>
+          <a href="#">Zapisy</a>
+        </div>
+      </div>
+      <div id="bottom-bar">
+        <p id="text">Hubert Kula --- v1.7.3</p>
+        <span class="material-symbols-outlined" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSce2fPXZNdcFH2RVE-4q4GjK90QSYP7wI9HSEtUsICqii_tDw/viewform?usp=sf_link')">bug_report</span>
+    </div>
+      </main>
+      </body>
 </html>
