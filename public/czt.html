@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>OCR Page</title>
+  </head>
+  <body>
+    <h1>Tekst z obrazka</h1>
+    <div id="ocr-result"></div>
+
+    <!-- skrypt Tesseract.js -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@v2.0.0-beta.3/dist/tesseract.min.js"></script>
+
+    <script>
+      // Funkcja do rozpoznawania tekstu
+      async function getOCRText() {
+        const image = new Image();
+        image.src = "image.png";
+
+        // rozpoznawanie tekstu z obrazka
+        const text = await Tesseract.recognize(image);
+
+        // wyświetlanie wyniku w elemencie o id "ocr-result"
+        document.querySelector("#ocr-result").textContent = text;
+      }
+
+      // uruchamianie funkcji po załadowaniu strony
+      window.addEventListener("load", getOCRText);
+    </script>
+  </body>
+</html>
