@@ -3,6 +3,7 @@
     <head>
         <title>Dodawanie</title>
         <meta charset=“UTF-8”>
+        <script src="https://unpkg.com/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
         <link rel="stylesheet" type="text/css" href="mainstyle.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
@@ -59,6 +60,13 @@
     measurementId: "G-T1ZEMDN90X"
   };
   firebase.initializeApp(firebaseConfig);
+  var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0');
+var yyyy = today.getFullYear();
+
+today = dd + '/' + mm + '/' + yyyy;
+console.log(today);
 
 function c(){
     const inputElement = document.querySelector("#image-file");
@@ -93,7 +101,8 @@ var gf = document.getElementById("gf")
         database.ref("notes/" + select.value).set({
             title: select.value,
             content: gf.value,
-            type: select.value
+            type: select.value,
+            datee: today
             
   });
   
@@ -111,7 +120,8 @@ console.log(select.value); // Zwróci wartość opcji
         database.ref("notes/" + select.value).set({
             title: select.value,
             content: gf.value,
-            type: colr.value
+            type: colr.value,
+            datee: today
             
   });
   
