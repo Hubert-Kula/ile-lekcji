@@ -12,6 +12,10 @@
         <span class="material-symbols-outlined" id="add" title="Edytuj" onclick="location.href='p.html'">
             home
             </span>
+            <p>Obraz</p>
+            <input  type="file" id="image-file" accept="image/*">
+            <button onclick="c()" id="ok">OK</button>
+            <hr style="border-top: 8px solid rgb(80, 80, 80); border-radius: 3">
             <p>Przedmiot:</p>
         <select id="mySelect">
             <option value="Matematyka">Matematyka</option>
@@ -36,8 +40,11 @@
           <br>
           <br>
           <button onclick="ilee()" id="zat">Zatwierdź</button>
+          <br>
+          <br>
+          <br>
+          <br>
           
-
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
     <script>
@@ -53,33 +60,29 @@
   };
   firebase.initializeApp(firebaseConfig);
 
-  var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0');
-var yyyy = today.getFullYear();
-
-today = dd + '/' + mm + '/' + yyyy;
-console.log(today);
-
-
-
 function c(){
-    window.location.href = "n.html";
+    const inputElement = document.querySelector("#image-file");
+      inputElement.addEventListener("change", async function() {
+        if (this.files.length === 0) return;
+
+        // Wczytywanie obrazu do aplikacji
+        const file = this.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = async function() {
+          const image = new Image();
+          image.src = reader.result;
+
+          // rozpoznawanie tekstu z obrazka
+          const text = await Tesseract.recognize(image);
+
+          // wyświetlanie wyniku w elemencie o id "ocr-result"
+          document.querySelector("#gf").value = text;
+        };
+      });
+      
 }
     function ile() {
-    
-    if (document.getElementById("mySelect") === "Matematyka") {
-      var col = "green";
-    } else if (document.getElementById("mySelect") === "J.polski") {
-        var col = "blue";
-    } else if (document.getElementById("mySelect") === "Historia") {
-        var col = "red";
-    } else if (document.getElementById("mySelect") === "Chemia") {
-        var col = "yelow";
-    } else if (document.getElementById("mySelect") === "WOS") {
-        var col = "pink";
-    }
-    const rt = col
 
     var select = document.getElementById("mySelect");
 console.log(select.value); // Zwróci wartość opcji
@@ -90,8 +93,7 @@ var gf = document.getElementById("gf")
         database.ref("notes/" + select.value).set({
             title: select.value,
             content: gf.value,
-            type: select.value,
-            datee: today
+            type: select.value
             
   });
   
@@ -109,8 +111,7 @@ console.log(select.value); // Zwróci wartość opcji
         database.ref("notes/" + select.value).set({
             title: select.value,
             content: gf.value,
-            type: colr.value,
-            datee: today
+            type: colr.value
             
   });
   
@@ -118,9 +119,6 @@ console.log(select.value); // Zwróci wartość opcji
     </script>
     <div id="bottom-bar">
         <p id="text">Hubert Kula --- v.1.7.4</p>
-        <span class="material-symbols-outlined" onclick="c()">
-            photo_camera
-            </span>
         <span class="material-symbols-outlined" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSce2fPXZNdcFH2RVE-4q4GjK90QSYP7wI9HSEtUsICqii_tDw/viewform?usp=sf_link')">bug_report</span>
     </div>
     </body>

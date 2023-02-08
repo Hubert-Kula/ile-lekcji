@@ -51,6 +51,17 @@ notesRef.on('value', function(snapshot) {
     } else {
       card.style.backgroundColor = data[key].type
     }
+
+    // Create a new text element
+let text = document.createElement("p");
+text.innerHTML = data[key].datee;
+text.style.position = "absolute";
+text.style.top = "10px";
+text.style.right = "10px";
+text.style.fontSize = "12px";
+
+// Append the text to the card
+card.appendChild(text);
     
 
     // Append the card to the container

@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "c:\\Users\\PC\\OneDrive\\Dokumenty\\GitHub\\cozadane\\index.html"
+            "file": "c:\\Users\\PC\\OneDrive\\Dokumenty\\GitHub\\cozadane\\public\\index.html"
         }
     ]
 }

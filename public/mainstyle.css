@@ -283,3 +283,24 @@ bad.orange {
   .sidenav a {font-size: 18px;}
 }
 
+#ok {
+  text-align: center;
+  color: #000000;
+  height: 75px;
+  width: 75px;
+  margin-left: 25px;
+  border-radius: 15px;
+  background-color: #4CAF50;
+  font-size: 25px;
+  cursor: pointer;
+  position: absolute;
+}
+
+#image-file {
+  font-size: larger;
+  text-align: center;
+  background-color: #00000000;
+}
+#file-upload-button {
+  color: #0a5fdd;
+}
