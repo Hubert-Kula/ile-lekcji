@@ -1,6 +1,6 @@
 body {
   font-family: 'Comfortaa';font-size: 22px;
-  background-color: #3693a3;
+  background-color: #3693a3
 }
 
 .card {
@@ -174,7 +174,7 @@ select {
   text-align: center;
 }
 
-#zat {
+#zat, #proccess {
   text-align: center;
   color: #000000;
   height: 50px;
@@ -296,11 +296,36 @@ bad.orange {
   position: absolute;
 }
 
-#image-file {
+#image-file, #file {
   font-size: larger;
   text-align: center;
   background-color: #00000000;
 }
 #file-upload-button {
   color: #0a5fdd;
+}
+
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #48c567; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
 }

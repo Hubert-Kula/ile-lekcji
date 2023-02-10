@@ -3,24 +3,32 @@
     <head>
         <title>Dodawanie</title>
         <meta charset=“UTF-8”>
-        <script src="https://unpkg.com/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
         <link rel="stylesheet" type="text/css" href="mainstyle.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+        <script src="https://unpkg.com/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
         <script src="style.js"></script>
     </head>
     <body>
+      <div class="alert" id="alert"style="display: none">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        Udało się😀 Wysłąno✉➡
+      </div>
         <span class="material-symbols-outlined" id="add" title="Edytuj" onclick="location.href='p.html'">
             home
             </span>
-            <p>Obraz</p>
-            <input  type="file" id="image-file" accept="image/*">
-            <button onclick="c()" id="ok">OK</button>
-            <hr style="border-top: 8px solid rgb(80, 80, 80); border-radius: 3">
+      <p>Wybierz plik:</p>
+      <input type="file" id="file">
+      <img id="imagePreview" style="display: none" width="15%" height="15%">
+      <br>
+      <button id="proccess">Przetwórz obrazek</button>
+      <h2  style="display: none" id="kht">Przetwarzanie...</h2>
+      <hr>
+      <br>
             <p>Przedmiot:</p>
         <select id="mySelect">
             <option value="Matematyka">Matematyka</option>
-            <option value="J.polski">J.polski</option>
+            <option value="Polski">J.polski</option>
             <option value="Historia">Historia</option>
             <option value="Chemia">Chemia</option>
             <option value="WOS">WOS</option>
@@ -41,13 +49,10 @@
           <br>
           <br>
           <button onclick="ilee()" id="zat">Zatwierdź</button>
-          <br>
-          <br>
-          <br>
-          <br>
           
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+
+          <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
     <script>
         const firebaseConfig = {
     apiKey: "AIzaSyDkOj4i72ophZEnE-eUm3msqBqrGVSGNis",
@@ -60,6 +65,7 @@
     measurementId: "G-T1ZEMDN90X"
   };
   firebase.initializeApp(firebaseConfig);
+
   var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -68,29 +74,37 @@ var yyyy = today.getFullYear();
 today = dd + '/' + mm + '/' + yyyy;
 console.log(today);
 
-function c(){
-    const inputElement = document.querySelector("#image-file");
-      inputElement.addEventListener("change", async function() {
-        if (this.files.length === 0) return;
-
-        // Wczytywanie obrazu do aplikacji
-        const file = this.files[0];
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = async function() {
-          const image = new Image();
-          image.src = reader.result;
-
-          // rozpoznawanie tekstu z obrazka
-          const text = await Tesseract.recognize(image);
-
-          // wyświetlanie wyniku w elemencie o id "ocr-result"
-          document.querySelector("#gf").value = text;
-        };
+      const imageInput = document.querySelector("#file");
+      const textResultt2 = document.getElementById("gff")
+      const imagePreview = document.querySelector("#imagePreview");
+      const processButton = document.querySelector("#proccess");
+      const textResultt = document.querySelector("#gf");
+      imageInput.addEventListener("change", function () {
+        const image = imageInput.files[0];
+        const imageUrl = URL.createObjectURL(image);
+        imagePreview.src = imageUrl;
+        imagePreview.style.display = "block";
       });
-      
-}
+
+      processButton.addEventListener("click", async function () {
+        document.getElementById("proccess").style.display = "none";
+        document.getElementById("kht").style.display = "block";
+        textResultt.value = "Skanowanie...";
+        textResultt2.value = "Skanowanie...";
+        // Funkcja do rozpoznawania tekstu
+        const { data: { text } } = await Tesseract.recognize(imagePreview);
+
+        // wprowadzanie wyniku do pola tekstowego
+        textResultt.value = text;
+        textResultt2.value = text;
+        document.getElementById("proccess").style.display = "block";
+        document.getElementById("kht").style.display = "none";
+
+      });
+
+
     function ile() {
+    
 
     var select = document.getElementById("mySelect");
 console.log(select.value); // Zwróci wartość opcji
@@ -105,7 +119,7 @@ var gf = document.getElementById("gf")
             datee: today
             
   });
-  
+  document.getElementById("alert").style.display = "block";
     }
 
 function ilee() {
@@ -124,11 +138,15 @@ console.log(select.value); // Zwróci wartość opcji
             datee: today
             
   });
-  
+  document.getElementById("alert").style.display = "block";
 }
     </script>
+    <br>
+    <br>
+    <br>
+    <br>
     <div id="bottom-bar">
-        <p id="text">Hubert Kula --- v.1.7.4</p>
+        <p id="text">Hubert Kula --- v1.7.6</p>
         <span class="material-symbols-outlined" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSce2fPXZNdcFH2RVE-4q4GjK90QSYP7wI9HSEtUsICqii_tDw/viewform?usp=sf_link')">bug_report</span>
     </div>
     </body>

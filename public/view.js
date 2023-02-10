@@ -38,7 +38,7 @@ notesRef.on('value', function(snapshot) {
     // Set the color of the card based on the note type
     if (data[key].type === "Matematyka") {
       card.style.backgroundColor = "#43b538";
-    } else if (data[key].type === "J.polski") {
+    } else if (data[key].type === "Polski") {
       card.style.backgroundColor = "#34cceb";
     } else if (data[key].type === "Historia") {
       card.style.backgroundColor = "red";

@@ -15,7 +15,7 @@
             <p>Przedmiot:</p>
         <select id="mySelect">
             <option value="Matematyka">Matematyka</option>
-            <option value="J.polski">J.polski</option>
+            <option value="Polski">J.polski</option>
             <option value="Historia">Historia</option>
             <option value="Chemia">Chemia</option>
             <option value="WOS">WOS</option>
@@ -38,8 +38,8 @@
           <button onclick="ilee()" id="zat">Zatwierdź</button>
           
 
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
     <script>
         const firebaseConfig = {
     apiKey: "AIzaSyDkOj4i72ophZEnE-eUm3msqBqrGVSGNis",
@@ -67,19 +67,6 @@ function c(){
     window.location.href = "n.html";
 }
     function ile() {
-    
-    if (document.getElementById("mySelect") === "Matematyka") {
-      var col = "green";
-    } else if (document.getElementById("mySelect") === "J.polski") {
-        var col = "blue";
-    } else if (document.getElementById("mySelect") === "Historia") {
-        var col = "red";
-    } else if (document.getElementById("mySelect") === "Chemia") {
-        var col = "yelow";
-    } else if (document.getElementById("mySelect") === "WOS") {
-        var col = "pink";
-    }
-    const rt = col
 
     var select = document.getElementById("mySelect");
 console.log(select.value); // Zwróci wartość opcji
@@ -117,7 +104,7 @@ console.log(select.value); // Zwróci wartość opcji
 }
     </script>
     <div id="bottom-bar">
-        <p id="text">Hubert Kula --- v.1.7.4</p>
+        <p id="text">Hubert Kula --- v.1.7.6</p>
         <span class="material-symbols-outlined" onclick="c()">
             photo_camera
             </span>

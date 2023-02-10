@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "firebase": "^9.17.1",
     "tesseract.js": "^4.0.2"
   }
 }
