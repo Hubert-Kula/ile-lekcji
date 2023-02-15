@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "dotenv": "^16.0.3",
     "firebase": "^9.17.1",
     "tesseract.js": "^4.0.2"
   }
