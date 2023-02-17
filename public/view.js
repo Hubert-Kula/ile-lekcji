@@ -1,17 +1,14 @@
-// Initialize Firebase
-const dotenv = require('dotenv');
-dotenv.config();
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: process.env.DATABASE_URL,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID,
-  measurementId: process.env.MEASUREMENT_ID
-};
+  API_KEY=AIzaSyDkOj4i72ophZEnE-eUm3msqBqrGVSGNis
+AUTH_DOMAIN=ile-lekcji.firebaseapp.com
+DATABASE_URL=https://ile-lekcji-default-rtdb.firebaseio.com
+PROJECT_ID=ile-lekcji
+STORAGE_BUCKET=ile-lekcji.appspot.com
+MESSAGING_SENDER_ID=801086162931
+APP_ID=1:801086162931:web:dfce03462d98a12eb7f486
+MEASUREMENT_ID=G-T1ZEMDN90X
+
 
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
