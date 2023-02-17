@@ -1,6 +1,6 @@
 
 const firebaseConfig = {
- piKey: "AIzaSyAMcDEf-NH9tSCBjjUWZ2bLhQEtEExtmTM",
+ apiKey: "AIzaSyAMcDEf-NH9tSCBjjUWZ2bLhQEtEExtmTM",
   authDomain: "ile-lekcji.firebaseapp.com",
   databaseURL: "https://ile-lekcji-default-rtdb.firebaseio.com",
   projectId: "ile-lekcji",
