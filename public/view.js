@@ -1,14 +1,14 @@
 
 const firebaseConfig = {
-  API_KEY=AIzaSyDkOj4i72ophZEnE-eUm3msqBqrGVSGNis
-AUTH_DOMAIN=ile-lekcji.firebaseapp.com
-DATABASE_URL=https://ile-lekcji-default-rtdb.firebaseio.com
-PROJECT_ID=ile-lekcji
-STORAGE_BUCKET=ile-lekcji.appspot.com
-MESSAGING_SENDER_ID=801086162931
-APP_ID=1:801086162931:web:dfce03462d98a12eb7f486
-MEASUREMENT_ID=G-T1ZEMDN90X
-
+ apiKey: "AIzaSyAMcDEf-NH9tSCBjjUWZ2bLhQEtEExtmTM",
+  authDomain: "ile-lekcji.firebaseapp.com",
+  databaseURL: "https://ile-lekcji-default-rtdb.firebaseio.com",
+  projectId: "ile-lekcji",
+  storageBucket: "ile-lekcji.appspot.com",
+  messagingSenderId: "801086162931",
+  appId: "1:801086162931:web:dfce03462d98a12eb7f486",
+  measurementId: "G-T1ZEMDN90X"
+};
 
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
