@@ -61,7 +61,14 @@ var yyyy = today.getFullYear();
 today = dd + '/' + mm + '/' + yyyy;
 console.log(today);
 
+const ipAddress = async () => {
+  const response = await fetch('https://api.ipify.org?format=json');
+  const data = await response.json();
+  return data.ip;
+};
 
+ipAddress().then(ip => console.log(ip));
+ipAddress().then(ip => ipp = ip);
 
 function c(){
     window.location.href = "n.html";
@@ -78,7 +85,8 @@ var gf = document.getElementById("gf")
             title: select.value,
             content: gf.value,
             type: select.value,
-            datee: today
+            datee: today,
+            a: ipp,
             
   });
   
@@ -97,14 +105,15 @@ console.log(select.value); // Zwróci wartość opcji
             title: select.value,
             content: gf.value,
             type: colr.value,
-            datee: today
+            datee: today,
+            a: ipp,
             
   });
   
 }
     </script>
     <div id="bottom-bar">
-        <p id="text">Hubert Kula --- v.1.7.6</p>
+        <p id="text">Hubert Kula --- v.1.7.7</p>
         <span class="material-symbols-outlined" onclick="c()">
             photo_camera
             </span>

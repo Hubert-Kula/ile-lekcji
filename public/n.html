@@ -74,6 +74,17 @@ var yyyy = today.getFullYear();
 today = dd + '/' + mm + '/' + yyyy;
 console.log(today);
 
+const ipAddress = async () => {
+  const response = await fetch('https://api.ipify.org?format=json');
+  const data = await response.json();
+  return data.ip;
+};
+var ipp = today;
+ipAddress().then(ip => console.log(ip));
+ipAddress().then(ip => ipp = ip);
+
+
+
       const imageInput = document.querySelector("#file");
       const textResultt2 = document.getElementById("gff")
       const imagePreview = document.querySelector("#imagePreview");
@@ -116,7 +127,8 @@ var gf = document.getElementById("gf")
             title: select.value,
             content: gf.value,
             type: select.value,
-            datee: today
+            datee: today,
+            a: ipp,
             
   });
   document.getElementById("alert").style.display = "block";
@@ -135,7 +147,8 @@ console.log(select.value); // Zwróci wartość opcji
             title: select.value,
             content: gf.value,
             type: colr.value,
-            datee: today
+            datee: today,
+            a: ipp,
             
   });
   document.getElementById("alert").style.display = "block";
@@ -146,7 +159,7 @@ console.log(select.value); // Zwróci wartość opcji
     <br>
     <br>
     <div id="bottom-bar">
-        <p id="text">Hubert Kula --- v1.7.6</p>
+        <p id="text">Hubert Kula --- v.1.7.7</p>
         <span class="material-symbols-outlined" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSce2fPXZNdcFH2RVE-4q4GjK90QSYP7wI9HSEtUsICqii_tDw/viewform?usp=sf_link')">bug_report</span>
     </div>
     </body>
