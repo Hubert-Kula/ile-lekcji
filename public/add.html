@@ -2,7 +2,8 @@
 <html>
     <head>
         <title>Dodawanie</title>
-        <meta charset=“UTF-8”>
+       <link rel="icon" type="image/png" href="FILE.png">
+<meta charset=“UTF-8”>
         <link rel="stylesheet" type="text/css" href="mainstyle.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
@@ -35,6 +36,11 @@
           <input type="color" id="v">
           <br>
           <br>
+          <form>
+            <input type="checkbox" id="polityka" name="polityka">
+            <label for="polityka">Zgadzam się z polityką prywatności.</label>
+        </form>
+        <button onclick="sprawdzZgode()">Wykonaj funkcję</button>
           <button onclick="ilee()" id="zat">Zatwierdź</button>
           
 
@@ -75,6 +81,8 @@ function c(){
 }
     function ile() {
 
+        
+
     var select = document.getElementById("mySelect");
 console.log(select.value); // Zwróci wartość opcji
 
@@ -109,6 +117,8 @@ console.log(select.value); // Zwróci wartość opcji
             a: ipp,
             
   });
+
+  
   
 }
     </script>
