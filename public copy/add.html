@@ -47,6 +47,9 @@
 
           <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
           <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js" ></script>
+          <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js" ></script>
+          <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js" ></script>
     <script>
         const firebaseConfig = {
     apiKey: "AIzaSyDkOj4i72ophZEnE-eUm3msqBqrGVSGNis",
@@ -73,30 +76,63 @@ const ipAddress = async () => {
   const data = await response.json();
   return data.ip;
 };
-
+var database = firebase.database();
 ipAddress().then(ip => console.log(ip));
 ipAddress().then(ip => ipp = ip);
 
 function c(){
     window.location.href = "n.html";
 }
+let u ;
+let h;
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // zalogowano użytkownika
+    console.log(user.uid); // tutaj  odczytujemy UID użytkownika
+    u = user.uid
+    firebase.database().ref('kon/' + u + '/kls').on('value', function(snapshot) {
+      var kls = snapshot.val();
+      console.log(kls); // Wartość węzła 'path/to/my/node'
+      h = "klas/" + kls + "/pd";
+    });
+  } else {
+    // niezalogowany użytkownik
+    console.log("bajo jajo")
+  }
+});
+
+function ile() {
+    var select = document.getElementById("mySelect");
+    console.log(select.value); // Zwróci wartość opcji
+    var gf = document.getElementById("gf");
+    var database = firebase.database();
+    database.ref(h + "/" + select.value + "/").set({
+        title: select.value,
+        content: gf.value,
+        date: today,
+        ip: ipp
+    });
+}
+
+
+
     function ile() {
 
-        
+
 
     var select = document.getElementById("mySelect");
 console.log(select.value); // Zwróci wartość opcji
 
 var gf = document.getElementById("gf")
-  var database = firebase.database();
+var database = firebase.database();
+ 
 
-        database.ref("notes/" + select.value).set({
+        database.ref(h + "/" + select.value + "/").set({
             title: select.value,
             content: gf.value,
             type: select.value,
             datee: today,
             a: ipp,
-            
   });
   
     }
@@ -110,13 +146,12 @@ console.log(select.value); // Zwróci wartość opcji
   var database = firebase.database();
   var colr = document.getElementById("v")
 
-        database.ref("notes/" + select.value).set({
+        database.ref(h + select.value).set({
             title: select.value,
             content: gf.value,
             type: colr.value,
             datee: today,
             a: ipp,
-            
   });
 
   

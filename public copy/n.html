@@ -7,13 +7,25 @@
         <link rel="stylesheet" type="text/css" href="mainstyle.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
-        <script async src="https://www.google.com/recaptcha/api.js"></script>
+        <script src="https://unpkg.com/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
         <script src="style.js"></script>
     </head>
     <body>
+      <div class="alert" id="alert"style="display: none">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        Udało się😀 Wysłąno✉➡
+      </div>
         <span class="material-symbols-outlined" id="add" title="Edytuj" onclick="location.href='p.html'">
             home
             </span>
+      <p>Wybierz plik:</p>
+      <input type="file" id="file">
+      <img id="imagePreview" style="display: none" width="15%" height="15%">
+      <br>
+      <button id="proccess">Przetwórz obrazek</button>
+      <h2  style="display: none" id="kht">Przetwarzanie...</h2>
+      <hr>
+      <br>
             <p>Przedmiot:</p>
         <select id="mySelect">
             <option value="Matematyka">Matematyka</option>
@@ -37,11 +49,6 @@
           <input type="color" id="v">
           <br>
           <br>
-          <form>
-            <input type="checkbox" id="polityka" name="polityka">
-            <label for="polityka">Zgadzam się z polityką prywatności.</label>
-        </form>
-        <button onclick="sprawdzZgode()">Wykonaj funkcję</button>
           <button onclick="ilee()" id="zat">Zatwierdź</button>
           
 
@@ -73,16 +80,43 @@ const ipAddress = async () => {
   const data = await response.json();
   return data.ip;
 };
-
+var ipp = today;
 ipAddress().then(ip => console.log(ip));
 ipAddress().then(ip => ipp = ip);
 
-function c(){
-    window.location.href = "n.html";
-}
-    function ile() {
 
-        
+
+      const imageInput = document.querySelector("#file");
+      const textResultt2 = document.getElementById("gff")
+      const imagePreview = document.querySelector("#imagePreview");
+      const processButton = document.querySelector("#proccess");
+      const textResultt = document.querySelector("#gf");
+      imageInput.addEventListener("change", function () {
+        const image = imageInput.files[0];
+        const imageUrl = URL.createObjectURL(image);
+        imagePreview.src = imageUrl;
+        imagePreview.style.display = "block";
+      });
+
+      processButton.addEventListener("click", async function () {
+        document.getElementById("proccess").style.display = "none";
+        document.getElementById("kht").style.display = "block";
+        textResultt.value = "Skanowanie...";
+        textResultt2.value = "Skanowanie...";
+        // Funkcja do rozpoznawania tekstu
+        const { data: { text } } = await Tesseract.recognize(imagePreview);
+
+        // wprowadzanie wyniku do pola tekstowego
+        textResultt.value = text;
+        textResultt2.value = text;
+        document.getElementById("proccess").style.display = "block";
+        document.getElementById("kht").style.display = "none";
+
+      });
+
+
+    function ile() {
+    
 
     var select = document.getElementById("mySelect");
 console.log(select.value); // Zwróci wartość opcji
@@ -98,7 +132,7 @@ var gf = document.getElementById("gf")
             a: ipp,
             
   });
-  
+  document.getElementById("alert").style.display = "block";
     }
 
 function ilee() {
@@ -118,16 +152,15 @@ console.log(select.value); // Zwróci wartość opcji
             a: ipp,
             
   });
-
-  
-  
+  document.getElementById("alert").style.display = "block";
 }
     </script>
+    <br>
+    <br>
+    <br>
+    <br>
     <div id="bottom-bar">
         <p id="text">Hubert Kula --- v.1.7.7</p>
-        <span class="material-symbols-outlined" onclick="c()">
-            photo_camera
-            </span>
         <span class="material-symbols-outlined" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSce2fPXZNdcFH2RVE-4q4GjK90QSYP7wI9HSEtUsICqii_tDw/viewform?usp=sf_link')">bug_report</span>
     </div>
     </body>

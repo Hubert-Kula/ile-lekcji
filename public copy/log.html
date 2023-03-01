@@ -68,6 +68,10 @@ firebase.initializeApp(firebaseConfig);
           // Uwierzytelnianie przebiegło pomyślnie
           const user = userCredential.user;
           console.log('Zalogowano jako', user.email);
+          const uid = userCredential.user.uid;
+            window.location.href("p.html")
+          
+          
         })
         .catch((error) => {
           // Wystąpił błąd podczas uwierzytelniania
@@ -78,6 +82,5 @@ firebase.initializeApp(firebaseConfig);
     };
             
         </script>
-        <a href="d.html">d</a>
     </body>
 </html>

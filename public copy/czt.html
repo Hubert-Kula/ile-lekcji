@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
+    <meta charset="utf-8">
+    <title>OCR Page</title>
+  </head>
+  <body>
+    <h1>Tekst z obrazka</h1>
+    <div id="ocr-result"></div>
+
+    <script>
+      // Funkcja do rozpoznawania tekstu
+      async function getOCRText() {
+        const image = new Image();
+        image.src = "image.png";
+
+        // rozpoznawanie tekstu z obrazka
+        const { data: { text } } = await Tesseract.recognize(image);
+
+        // wyświetlanie wyniku w elemencie o id "ocr-result"
+        document.querySelector("#ocr-result").textContent = text;
+      }
+
+      // uruchamianie funkcji po załadowaniu strony
+      window.addEventListener("load", getOCRText);
+    </script>
+  </body>
+</html>

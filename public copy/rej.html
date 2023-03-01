@@ -1,0 +1,92 @@
+<html>
+    <head>
+      <link rel="icon" type="image/png" href="FILE.png">
+<meta charset=“UTF-8”>
+        <link rel="stylesheet" type="text/css" href="mainstyle.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+        <script src="style.js"></script>
+        <title>Rejestracja</title>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js" ></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js" ></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js" ></script>
+    </head>
+    <body>
+        <div>
+            <p>e-mail:</p>
+            <input type="email" name="e" id="e">
+            <br>
+            <p>Imię:</p>
+            <input type="text" name="im" id="im">
+            <br>
+            <p>Nazwa użytkownika:</p>
+            <input type="text" name="n" id="n">
+            <br>
+            <p>Hasło:</p>
+            <input type="password" name="h" id="h">
+            <br>
+            <p>"Potwierdzam, że przeczytałem i zgadzam się z </p><a href="PP.HTML">polityką prywatności </a><p>oraz </p><a href="eula.html">warunkami korzystania z usługi.</a>
+            <input type="checkbox">
+            <br>
+            <button onclick="o()">Dalej</button>
+
+
+            <script>
+                        const firebaseConfig = {
+    apiKey: "AIzaSyDkOj4i72ophZEnE-eUm3msqBqrGVSGNis",
+    authDomain: "ile-lekcji.firebaseapp.com",
+    databaseURL: "https://ile-lekcji-default-rtdb.firebaseio.com",
+    projectId: "ile-lekcji",
+    storageBucket: "ile-lekcji.appspot.com",
+    messagingSenderId: "801086162931",
+    appId: "1:801086162931:web:dfce03462d98a12eb7f486",
+    measurementId: "G-T1ZEMDN90X"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+   const email = document.getElementById("e");
+ const password = document.getElementById("h");
+ const nazwa = document.getElementById("n");
+const imie = document.getElementById("im");
+                function o() {
+                firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+  .then((userCredential) => {
+    // Rejestracja zakończona pomyślnie
+    const user = userCredential.user;
+    console.log('Rejestracja zakończona pomyślnie:', user);
+    const uid = userCredential.user.uid
+
+    var database = firebase.database();
+    database.ref("kon/" + uid).set({
+        im: imie.value,
+        nazw: nazwa.value,
+    });
+    k();
+   function k() {
+    firebase.database().ref('kon/' + uid + 'im').on('value', function(snapshot) {
+      var kl = snapshot.val();
+      console.log(kl); // Wartość węzła 'path/to/my/node'
+      if(kl === imie.value){
+        window.location.href = "dk.html"
+      } else {
+        k()
+      }
+      
+    });
+  }
+
+    
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log('Błąd rejestracji:', errorMessage);
+  });
+}
+
+            </script>
+        </div>
+    </body>
+</html>

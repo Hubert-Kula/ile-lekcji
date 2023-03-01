@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="FILE.png">
+<meta charset=“UTF-8”>
+        <link rel="stylesheet" type="text/css" href="mainstyle.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+        <script src="style.js"></script>
+        <title>Rejestracja</title>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js" ></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js" ></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js" ></script>
+    </head>
+    <body>
+        <h1>Dołącz do klasy</h1>
+        <br>
+        <p>Kod klasy:</p>
+        <input type="number" name="nr" id="nr">
+        <br>
+        <button onclick="gh()">Rejestruj</button>
+        <script>
+        const firebaseConfig = {
+    apiKey: "AIzaSyDkOj4i72ophZEnE-eUm3msqBqrGVSGNis",
+    authDomain: "ile-lekcji.firebaseapp.com",
+    databaseURL: "https://ile-lekcji-default-rtdb.firebaseio.com",
+    projectId: "ile-lekcji",
+    storageBucket: "ile-lekcji.appspot.com",
+    messagingSenderId: "801086162931",
+    appId: "1:801086162931:web:dfce03462d98a12eb7f486",
+    measurementId: "G-T1ZEMDN90X"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  const nr = document.getElementById("nr");
+  function gh() {
+let uid;
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // UID aktualnie zalogowanego użytkownika jest dostępne w obiekcie user.uid
+    uid = user.uid;
+    console.log(uid);
+    var database = firebase.database();
+    database.ref("kon/" + uid).set({
+        kls: nr.value
+    });
+    function k() {
+    firebase.database().ref('kon/' + uid + 'kls').on('value', function(snapshot) {
+      var kl = snapshot.val();
+      console.log(kl); // Wartość węzła 'path/to/my/node'
+      if(kl === nr.value){
+        window.location.href = "p.html"
+      } else {
+        k()
+      }
+    });
+}
+  } else {
+    // użytkownik nie jest zalogowany
+  }
+});
+  };
+
+
+        </script>
+    </body> 
+</html>

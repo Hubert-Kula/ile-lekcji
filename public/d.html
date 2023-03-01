@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js" ></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js" ></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js" ></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js" ></script>
+        <script>
+            firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // zalogowano użytkownika
+    console.log(user.uid); // tutaj odczytujemy UID użytkownika
+  } else {
+    // niezalogowany użytkownik
+  }
+});
+
+        </script>
+        <a href="log.html">log</a>
+    </body>
+</html>
